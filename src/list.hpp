@@ -8,6 +8,7 @@ private:
     int* array;
     void swap(const int& a, const int& b);
     int part_sort(int begin, int end);
+    void heapify(int size, int root);
 
 public:
     List();
@@ -27,4 +28,5 @@ public:
     void resize(const int& newSize);
     void replace(const int& original, const int& substitute);
     void quick_sort(const int& begin, const int& end);
+    void heap_sort();
 };

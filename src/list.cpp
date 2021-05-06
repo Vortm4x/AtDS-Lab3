@@ -303,3 +303,41 @@ void List::quick_sort(const int& begin, const int& end)
     quick_sort(begin, median);
     quick_sort(median + 1, end);
 }
+
+void List::heapify(int size, int root)
+{
+    int max = root;
+    int left = 2 * root + 1;
+    int right = left + 1;
+
+    if(left < size && array[left] > array[max])
+    {
+        max = left;
+    }
+
+    if(right < size && array[right] > array[max])
+    {
+        max = right;
+    }
+
+    if(max != root)
+    {
+        swap(root, max);
+        heapify(size, max);
+    }
+}
+
+void List::heap_sort()
+{
+    for(int i = size() / 2 - 1; i >= 0; --i)
+    {
+        heapify(size(), i);
+    }
+
+    for (int i = size() - 1; i > 0; --i)
+    {
+        swap(0, i);
+        heapify(i, 0);
+    }
+    
+}
